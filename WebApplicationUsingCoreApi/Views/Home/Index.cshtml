@@ -1,0 +1,25 @@
+﻿@model WebApplicationUsingCoreApi.Models.UserLiogin
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>User Login</h1>
+<form asp-action="Index" asp-controller="Home" method="post">
+    <label>Name</label>
+    <input type="text" placeholder="Enter your Email" asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+
+    <label>Email</label>
+    <input type="email" placeholder="Enter your Email" asp-for="Email" />
+    <span asp-validation-for="Email"></span>
+    <span style="color:red">@TempData["Email"]</span>
+    <br />
+    <label>Password</label>
+    <input type="password" placeholder="Enter your password" asp-for="Password" />
+    <span asp-validation-for="Password"></span>
+    <span style="color:red">@TempData["Wrong"]</span>
+    <br />
+    <input type="submit" value="Submit" class="btn btn-success" />
+</form>
+<partial name="_ValidationScriptsPartial" />
+<a asp-action="Singup" asp-controller="Home" class="btn btn-success">Singup</a>
+<script src="~/js/Cascade.js"></script>
